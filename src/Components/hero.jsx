@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-scroll';
+import backgroundImage from './../assets/2.jpg'; // Importa la imagen para el fondo
+import logo from './../assets/3.png'; // Importa la imagen del logo
 
 const Hero = () => {
   const bgStyle = {
-    backgroundImage: `url('src/assets/2.jpg')`,
+    backgroundImage: `url(${backgroundImage})`, // Utiliza la URL de la imagen para el fondo
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -20,14 +22,9 @@ const Hero = () => {
     height: 'auto',
   };
 
-  const buttonStyle = {
-    position: 'absolute',
-    right: '0',
-    top: '0',
-    transition: 'top 0.3s ease-in-out', // Agregar transición para el desplazamiento
-    zIndex: '10',
-  };
-  
+  useEffect(() => {
+    moveButton();
+  }, []); // Llama a moveButton() una vez que el componente esté montado
 
   const moveButton = () => {
     const button = document.getElementById('monstersButton');
@@ -44,14 +41,13 @@ const Hero = () => {
 
   return (
     <div style={bgStyle} className="relative">
-      <img src="src/assets/3.png" alt="Logo" style={logoStyle} />
+      <img src={logo} alt="Logo" style={logoStyle} />
       <div
         id="heroText"
         className="inset-x-0 top-0 bg-black flex flex-col justify-center items-center h-32"
-        onLoad={moveButton}
       >
         <div className="text-center mb-2">
-          <h2 className="md:text-3xl text-xl font-bold font-serif ">
+          <h2 className="md:text-3xl text-xl font-bold font-serif">
             ¡Developed to help novice hunters in this new adventure!
           </h2>
         </div>
