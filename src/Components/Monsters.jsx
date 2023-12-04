@@ -1,63 +1,109 @@
 import React, { useState, useEffect } from 'react';
-
 import backgroundImage from './../assets/Ecosistema.webp'; // Ruta de tu imagen de fondo
+import aptonoth from './../assets/aptonoth.webp';
+import jagras from './../assets/jagras.webp';
+import mernos from './../assets/mernos.webp';
+import vespoid from './../assets/vespoid.webp';
+import mosswine from './../assets/mosswine.webp';
+import apceros from './../assets/apceros.webp';
+import kestodon from './../assets/kestodon.webp';
+import noios from './../assets/noios.webp';
+import gajau from './../assets/gajau.png';
+import kelbi from './../assets/kelbi.webp';
+import raphinos from './../assets/raphinos.webp';
+import shamos from './../assets/shamos.webp';
+import girros from './../assets/girros.webp';
+import hornetaur from './../assets/hornetaur.webp';
+import gastodon from './../assets/gastodon.webp';
+import barnos from './../assets/barnos.png';
+import greatJagras from './../assets/great jagras.webp';
+import kuluYaKu from './../assets/kulu-ya-ku.webp';
+import pukeiPukei from './../assets/pukei-pukei.webp';
+import barroth from './../assets/barroth.webp';
+import jyuratodus from './../assets/jyuratodus.webp';
+import tobiKadachi from './../assets/tobi-kadachi.webp';
+import anjanath from './../assets/anjanath.webp';
+import azureRathalos from './../assets/azure rathalos.webp';
+import bazelgeuse from './../assets/bazelgeuse.png';
+import behemoth from './../assets/behemoth.webp';
+import deviljho from './../assets/deviljho.webp';
+import diablos from './../assets/diablos.webp';
+import blackDiablos from './../assets/black diablos.webp';
+import dodogama from './../assets/dodogama.png';
+import greatGirros from './../assets/great girros.webp';
+import kirin from './../assets/kirin.webp';
+import kulveTaroth from './../assets/kulve taroth.webp';
+import kushalaDaora from './../assets/kushala daora.webp';
+import lavasioth from './../assets/lavasioth.webp';
+import legiana from './../assets/legiana.webp';
+import lunastra from './../assets/lunastra.webp';
+import nergigante from './../assets/nergigante.webp';
+import odogaron from './../assets/odogaron.webp';
+import paolumu from './../assets/paolumu.webp';
+import radobaan from './../assets/radobaan.webp';
+import rathalos from './../assets/rathalos.webp';
+import rathian from './../assets/rathian.webp';
+import pinkRathian from './../assets/pink rathian.webp';
+import teostra from './../assets/teostra.webp';
+import tzitziYaKu from './../assets/tzitzi-ya-ku.webp';
+import uragaan from './../assets/uragaan.webp';
+import vaalHazak from './../assets/vaal hazak.webp';
+import xenoJiiva from './../assets/xeno\'jiiva.webp';
+import zorahMagdaros from './../assets/zorah magdaros.webp';
+
 const monsterImages = [
-    'src/assets/aptonoth.webp',
-    'src/assets/jagras.webp',
-    'src/assets/mernos.webp',
-    'src/assets/vespoid.webp',
-    'src/assets/mosswine.webp',
-    'src/assets/apceros.webp',
-    'src/assets/kestodon.webp',
-    'src/assets/noios.webp',
-    'src/assets/gajau.png',
-    'src/assets/kelbi.webp',
+  aptonoth,
+  jagras,
+  mernos,
+  vespoid,
+  mosswine,
+  apceros,
+  kestodon,
+  noios,
+  gajau,
+  kelbi,
+  raphinos,
+  shamos,
+  girros,
+  hornetaur,
+  gastodon,
+  barnos,
+  greatJagras,
+  kuluYaKu,
+  pukeiPukei,
+  barroth,
+  jyuratodus,
+  tobiKadachi,
+  anjanath,
+  azureRathalos,
+  bazelgeuse,
+  behemoth,
+  deviljho,
+  diablos,
+  blackDiablos,
+  dodogama,
+  greatGirros,
+  kirin,
+  kulveTaroth,
+  kushalaDaora,
+  lavasioth,
+  legiana,
+  lunastra,
+  nergigante,
+  odogaron,
+  paolumu,
+  radobaan,
+  rathalos,
+  rathian,
+  pinkRathian,
+  teostra,
+  tzitziYaKu,
+  uragaan,
+  vaalHazak,
+  xenoJiiva,
+  zorahMagdaros,];
 
-    'src/assets/raphinos.webp',
-    'src/assets/shamos.webp',
-    'src/assets/girros.webp',
-    'src/assets/hornetaur.webp',
-    'src/assets/gastodon.webp',
-    'src/assets/barnos.png',
-    'src/assets/great jagras.webp',
-    'src/assets/kulu-ya-ku.webp',
-    'src/assets/pukei-pukei.webp',
-    'src/assets/barroth.webp',
 
-    'src/assets/jyuratodus.webp',
-    'src/assets/tobi-kadachi.webp',
-    'src/assets/anjanath.webp',
-    'src/assets/azure rathalos.webp',
-    'src/assets/bazelgeuse.png',
-    'src/assets/behemoth.webp',
-    'src/assets/deviljho.webp',
-    'src/assets/diablos.webp',
-    'src/assets/black diablos.webp',
-    'src/assets/dodogama.png',
-
-    'src/assets/great girros.webp',
-    'src/assets/kirin.webp',
-    'src/assets/kulve taroth.webp',
-    'src/assets/kushala daora.webp',
-    'src/assets/lavasioth.webp',
-    'src/assets/legiana.webp',
-    'src/assets/lunastra.webp',
-    'src/assets/nergigante.webp',
-    'src/assets/odogaron.webp',
-    'src/assets/paolumu.webp',
-
-    'src/assets/radobaan.webp',
-    'src/assets/rathalos.webp',
-    'src/assets/rathian.webp',
-    'src/assets/pink rathian.webp',
-    'src/assets/teostra.webp',
-    'src/assets/tzitzi-ya-ku.webp',
-    'src/assets/uragaan.webp',
-    'src/assets/vaal hazak.webp',
-    "src/assets/xeno'jiiva.webp",
-    'src/assets/zorah magdaros.webp',
-    // ... (agrega las URL de las imágenes ficticias de los monstruos)
-  ];
   const MonstersInfo = () => {
     const [allMonsters, setAllMonsters] = useState([]);
     const [expandedMonster, setExpandedMonster] = useState(null);
